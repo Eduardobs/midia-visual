@@ -43,3 +43,5 @@ main{padding:0}
  .hero{padding-top:36px}.hero h1{font-size:42px}.hero-art{height:230px}.hero-description{max-width:390px}.hero-signature{padding:14px 0}
  .toolbar{flex-direction:row}.categories{max-width:75%}.search{width:240px}.search input{font-size:13px}.product-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.how{grid-template-columns:1fr 1.4fr;gap:60px}.about{padding:70px 20%}
 }
+
+.load-more{margin-top:32px;text-align:center}.load-more .button{min-height:44px}

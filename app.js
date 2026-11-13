@@ -1,21 +1,26 @@
 import {unitPrice, validQuantity, restoreCart, money, buildMessage} from './cart.js';
 const $ = selector => document.querySelector(selector);
-const state = {products:[],cart:[],category:'Todos',store:null};
+const pageSize = 12;
+const state = {products:[],cart:[],category:'Todos',store:null,visibleCount:pageSize};
 const storageKey='midia-visual-cart-v1';
 const escapeHTML = value => String(value).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 let toastTimer;
 function toast(text){$('#toast').textContent=text;$('#toast').classList.add('visible');clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('#toast').classList.remove('visible'),2600);}
 function persist(){try{localStorage.setItem(storageKey,JSON.stringify(state.cart));}catch{}renderCart();}
-function renderProducts(){
+function renderProducts(append=false){
  const query=$('#search').value.normalize('NFD').replace(/\p{Diacritic}/gu,'').toLowerCase();
  let products=state.products.filter(p=>(state.category==='Todos'||p.category===state.category)&&`${p.name} ${p.category} ${p.description} ${p.id}`.normalize('NFD').replace(/\p{Diacritic}/gu,'').toLowerCase().includes(query));
  const sort=$('#sort').value;
  if(sort==='name') products.sort((a,b)=>a.name.localeCompare(b.name,'pt-BR'));
  if(sort==='price-up') products.sort((a,b)=>(a.price??Infinity)-(b.price??Infinity));
  if(sort==='price-down') products.sort((a,b)=>(b.price??-Infinity)-(a.price??-Infinity));
- $('#results').textContent=`${products.length} ${products.length===1?'produto encontrado':'produtos encontrados'}`;
- $('#products').innerHTML=products.length ? products.map(p=>`<article class="product-card"><button class="product-image detail-trigger" data-detail="${p.id}" aria-label="Ver detalhes de ${escapeHTML(p.name)}"><img src="${escapeHTML(p.images[0])}" alt="${escapeHTML(p.name)}" loading="lazy" width="750" height="750">${p.description.includes('Sob encomenda')?'<span class="product-tag">SOB ENCOMENDA</span>':''}<span class="details-label">Ver detalhes ↗</span></button><p class="category">${escapeHTML(p.category)}</p><h3>${escapeHTML(p.name)}</h3>${p.description?`<p class="description">${escapeHTML(p.description)}</p>`:''}<p class="price">${p.price===null?'Sob consulta':money(p.price)+` <small>/ ${p.unit}</small>`}</p><p class="minimum">${p.minimumSpecified?`Mínimo de ${p.minimumQuantity} unidades`:'Consulte condições do pedido'}</p><button class="add" data-add="${p.id}">Adicionar à sacola <span aria-hidden="true">＋</span></button></article>`).join(''):'<p class="empty">Nenhum produto encontrado. Experimente outra busca ou categoria.</p>';
+ const visible=products.slice(0,state.visibleCount);
+ $('#load-more').hidden=visible.length>=products.length;
+ $('#results').textContent=`${visible.length} de ${products.length} ${products.length===1?'produto encontrado':'produtos encontrados'}`;
+ const markup=products.length ? visible.slice(append?Math.max(0,state.visibleCount-pageSize):0).map(p=>`<article class="product-card"><button class="product-image detail-trigger" data-detail="${p.id}" aria-label="Ver detalhes de ${escapeHTML(p.name)}"><img src="${escapeHTML(p.images[0])}" alt="${escapeHTML(p.name)}" loading="lazy" width="750" height="750">${p.description.includes('Sob encomenda')?'<span class="product-tag">SOB ENCOMENDA</span>':''}<span class="details-label">Ver detalhes ↗</span></button><p class="category">${escapeHTML(p.category)}</p><h3>${escapeHTML(p.name)}</h3>${p.description?`<p class="description">${escapeHTML(p.description)}</p>`:''}<p class="price">${p.price===null?'Sob consulta':money(p.price)+` <small>/ ${p.unit}</small>`}</p><p class="minimum">${p.minimumSpecified?`Mínimo de ${p.minimumQuantity} unidades`:'Consulte condições do pedido'}</p><button class="add" data-add="${p.id}">Adicionar à sacola <span aria-hidden="true">＋</span></button></article>`).join(''):'<p class="empty">Nenhum produto encontrado. Experimente outra busca ou categoria.</p>';
+ if(append)$('#products').insertAdjacentHTML('beforeend',markup);else $('#products').innerHTML=markup;
 }
+function resetProducts(){state.visibleCount=pageSize;renderProducts();}
 function renderCart(){
  $('#cart-count').textContent=state.cart.reduce((n,i)=>n+i.quantity,0);
  $('#open-cart').setAttribute('aria-label',`Abrir sacola, ${$('#cart-count').textContent} unidades`);
@@ -66,9 +71,14 @@ $('#cart-items').addEventListener('change',event=>{
 });
 $('#categories').addEventListener('click',event=>{
  const button=event.target.closest('button');if(!button)return;state.category=button.dataset.category;
- for(const b of $('#categories').children)b.setAttribute('aria-pressed',b===button?'true':'false');renderProducts();
+ for(const b of $('#categories').children)b.setAttribute('aria-pressed',b===button?'true':'false');resetProducts();
 });
-$('#search').addEventListener('input',renderProducts);$('#sort').addEventListener('change',renderProducts);
+$('#search').addEventListener('input',resetProducts);$('#sort').addEventListener('change',resetProducts);
+$('#load-more').addEventListener('click',()=>{
+ const firstNew=state.visibleCount;
+ state.visibleCount+=pageSize;renderProducts(true);
+ $('#products').children[firstNew]?.querySelector('button')?.focus({preventScroll:true});
+});
 $('#open-cart').addEventListener('click',()=>$('#cart').showModal());
 $('#close-cart').addEventListener('click',()=>$('#cart').close());
 $('#cart').addEventListener('click',event=>{if(event.target===$('#cart')){const r=$('#cart').getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)$('#cart').close();}});

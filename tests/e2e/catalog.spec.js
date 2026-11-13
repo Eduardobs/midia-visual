@@ -8,9 +8,15 @@ const cards = page => page.locator('.product-card');
 const add = (page, product) => page.locator(`[data-add="${product.id}"]`).click();
 const openCart = page => page.getByRole('button', {name: /^Abrir sacola/}).click();
 
+async function showAll(page, total=products.length) {
+  for(let count=12;count<total;count+=12) await page.getByRole('button', {name: 'Exibir mais produtos'}).click();
+  await expect(cards(page)).toHaveCount(total);
+}
+
 async function load(page) {
   await page.goto('/');
-  await expect(cards(page)).toHaveCount(products.length);
+  await expect(cards(page)).toHaveCount(Math.min(12, products.length));
+  await showAll(page);
 }
 
 test('catálogo busca sem acentos, filtra por categoria e mostra estado vazio', async ({page}) => {
@@ -27,7 +33,7 @@ test('catálogo busca sem acentos, filtra por categoria e mostra estado vazio', 
   await expect(cards(page).filter({has: page.getByRole('heading', {name: accented.name, exact: true})})).toHaveCount(1);
   await page.getByRole('searchbox').fill('');
   await page.locator('#categories').getByRole('button', {name: product.category, exact: true}).click();
-  await expect(cards(page)).toHaveCount(products.filter(p => p.category === product.category).length);
+  await showAll(page, products.filter(p => p.category === product.category).length);
   await expect(page.locator('#categories [aria-pressed="true"]')).toHaveText(product.category);
 });
 
@@ -39,6 +45,8 @@ for (const [sort, compare] of [
   test(`ordenação ${sort}`, async ({page}) => {
     await load(page);
     await page.getByRole('combobox').selectOption(sort);
+    await expect(cards(page)).toHaveCount(Math.min(12, products.length));
+    await showAll(page);
     await expect(cards(page).locator('h3')).toHaveText([...products].sort(compare).map(p => p.name));
   });
 }
@@ -68,7 +76,8 @@ test('sacola acumula itens, respeita mínimo, persiste e remove', async ({page})
   await page.locator('#cart-title').click();
   await expect(page.locator(`#qty-${product.id}`)).toHaveValue(String(product.minimumQuantity));
   await page.reload();
-  await expect(cards(page)).toHaveCount(products.length);
+  await expect(cards(page)).toHaveCount(Math.min(12, products.length));
+  await showAll(page);
   await openCart(page);
   await expect(page.locator(`#qty-${product.id}`)).toHaveValue(String(product.minimumQuantity));
   await page.getByRole('button', {name: `Remover ${product.name}`, exact: true}).click();
@@ -135,4 +144,28 @@ test('falha no catálogo oferece contato e impede checkout', async ({page}) => {
   await page.locator('#open-cart').click();
   await expect(page.locator('#cart-items')).toContainText('Catálogo indisponível');
   await expect(page.locator('#cart-checkout')).toBeHidden();
+});
+
+ test('exibe produtos em lotes e reinicia a paginação ao buscar e filtrar', async ({page}) => {
+  await page.goto('/');
+  await expect(cards(page)).toHaveCount(12);
+  await expect(page.locator('#results')).toContainText(`12 de ${products.length}`);
+  await page.getByRole('button', {name: 'Exibir mais produtos'}).click();
+  await expect(cards(page)).toHaveCount(Math.min(24, products.length));
+  await expect(cards(page).locator('h3')).toHaveText(products.slice(0,24).map(p => p.name));
+  await page.locator(`[data-detail="${products[12].id}"]`).click();
+  await expect(page.locator('#detail-title')).toHaveText(products[12].name);
+  await page.keyboard.press('Escape');
+  await page.getByRole('searchbox').fill(products.at(-1).id);
+  await expect(cards(page)).toHaveCount(1);
+  await expect(page.locator('#load-more')).toBeHidden();
+  await page.getByRole('searchbox').fill('');
+  await expect(cards(page)).toHaveCount(12);
+  await showAll(page);
+  await expect(page.locator('#load-more')).toBeHidden();
+  await page.locator('#categories').getByRole('button', {name: 'Todos', exact: true}).click();
+  await expect(cards(page)).toHaveCount(12);
+  await page.getByRole('searchbox').fill('produto inexistente xyz');
+  await expect(cards(page)).toHaveCount(0);
+  await expect(page.locator('#load-more')).toBeHidden();
 });
