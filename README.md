@@ -59,8 +59,39 @@ A sacola permanece neste navegador via `localStorage`. Se o armazenamento estive
 ## Validação
 
 ```sh
-npm test
+npm ci
+npm test                  # Testes unitários e integridade do catálogo
+npx playwright install chromium
+npm run test:e2e          # E2E em Chromium desktop e celular
+npm run test:all          # Todas as suítes
 node --check app.js
 ```
 
-Testes verificam integridade do catálogo e das fotos, mínimos, restauração da sacola, desconto e composição da mensagem. O site não depende de pacotes npm. Fontes Google são opcionais; fontes do sistema são usadas como alternativa.
+Os testes unitários usam o executor nativo do Node.js. Verificam integridade do catálogo e das fotos, limites de quantidade, restauração e duplicatas da sacola, faixas de desconto, formatação monetária e composição da mensagem.
+
+Os testes e2e usam Playwright e iniciam automaticamente o servidor Python na porta 8000. Cobrem busca sem acentos, categorias, ordenação, detalhes, sacola persistida, armazenamento bloqueado, pedido pelo WhatsApp e falha de carregamento. A abertura do WhatsApp é interceptada para validar a URL e a mensagem sem enviar pedidos. Cada teste recebe um navegador isolado. Para executar apenas desktop: `npm run test:e2e -- --project=chromium`. Para investigar falhas: `npx playwright show-trace test-results/<teste>/trace.zip`.
+
+Requer Node.js 22 ou superior, Python 3 e os navegadores do Playwright. Em Linux, instale dependências do navegador com `npx playwright install --with-deps chromium` quando necessário. A aplicação publicada continua sem dependências npm em tempo de execução. Fontes Google são opcionais; fontes do sistema são usadas como alternativa.
+
+### Painel administrativo
+
+Acesse diretamente `/admin` (ou `/admin/`), sem links na vitrine. O painel permite
+buscar por nome, criar, editar e remover produtos, importar um catálogo JSON e
+baixar `products.json` atualizado. Também apresenta uma prévia do JSON completo.
+As edições ficam em um rascunho no navegador, restaurado mediante confirmação.
+O arquivo publicado e a vitrine só mudam após substituir `data/products.json`
+pelo arquivo baixado e publicar o projeto novamente.
+
+Novos produtos usam as categorias Chaveiros, Térmicos, Churrasco, Canetas,
+Chimarrão, Presentes, Comunicação visual, Troféus/medalhas, Acessórios,
+Escritório, Acrílico e MDF, Churrasco e cozinha, Vinho e bar, Copos e térmicos,
+Bolsas e nécessaires e Datas comemorativas. Imagens são
+adicionadas por upload, com seleção de vários arquivos de uma vez, e salvas
+como data URLs base64 no campo `images` do JSON. O formulário mostra apenas
+as prévias e as opções de adicionar ou remover imagens antes de salvar o produto;
+caminhos e URLs já presentes no catálogo são preservados. As faixas de preço são editadas em campos de quantidade e preço por unidade.
+A quantidade é exclusiva: acima de 30 vale a partir de 31 unidades. O JSON
+preserva o formato `minimumQuantity` (primeira quantidade válida) e `price`.
+
+O painel é estático e não possui autenticação; seu endereço não é uma proteção
+de acesso. Nenhuma edição é enviada ao servidor.

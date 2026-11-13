@@ -1,0 +1,102 @@
+import {test, expect} from '@playwright/test';
+import {readFileSync} from 'node:fs';
+const products = JSON.parse(readFileSync(new URL('../../data/products.json', import.meta.url)));
+
+test('admin edita, cria, restaura rascunho, exporta e remove produtos', async ({page}) => {
+  await page.goto('/admin');
+  await expect(page.locator('#products tr')).toHaveCount(products.length);
+  await page.getByRole('searchbox').fill(products[0].name);
+  await page.getByRole('button', {name: 'Editar', exact: true}).first().click();
+  await page.getByLabel('Nome', {exact: true}).fill('Produto alterado');
+  await page.getByRole('button', {name: 'Salvar produto'}).click();
+  await page.getByRole('searchbox').fill('Produto alterado');
+  await expect(page.locator('#products tr')).toHaveCount(1);
+  await page.getByRole('button', {name: '+ Novo produto'}).click();
+  await page.getByLabel('Código', {exact: true}).fill('TEST001');
+  await page.getByLabel('Nome', {exact: true}).fill('Térmico teste');
+  await page.getByLabel('Categoria', {exact: true}).selectOption('Térmicos');
+  await page.getByRole('button', {name: 'Salvar produto'}).click();
+  page.once('dialog', dialog => dialog.accept());
+  await page.reload();
+  await expect(page.locator('#products tr')).toHaveCount(products.length + 1);
+  const downloadPromise = page.waitForEvent('download');
+  await page.getByRole('button', {name: 'Baixar products.json'}).click();
+  const download = await downloadPromise;
+  const exported = JSON.parse(readFileSync(await download.path(), 'utf8'));
+  expect(exported.find(p => p.id === products[0].id).name).toBe('Produto alterado');
+  expect(exported.find(p => p.id === 'TEST001').price).toBeNull();
+  await page.getByRole('searchbox').fill('termico teste');
+  await page.getByRole('button', {name: 'Remover', exact: true}).click();
+  await page.getByRole('button', {name: 'Remover produto', exact: true}).click();
+  await expect(page.locator('#products tr')).toHaveCount(0);
+});
+
+test('admin importa JSON válido e preserva catálogo ao rejeitar arquivo inválido', async ({page}) => {
+  await page.goto('/admin/');
+  await expect(page.locator('#products tr')).toHaveCount(products.length);
+  await page.locator('#file').setInputFiles({name:'invalid.json', mimeType:'application/json', buffer:Buffer.from('{')});
+  await expect(page.getByRole('status')).toContainText('Importação não realizada');
+  await expect(page.locator('#products tr')).toHaveCount(products.length);
+  page.once('dialog', dialog => dialog.accept());
+  await page.locator('#file').setInputFiles({name:'valid.json', mimeType:'application/json', buffer:Buffer.from(JSON.stringify([products[0]]))});
+  await expect(page.locator('#products tr')).toHaveCount(1);
+  await expect(page.getByRole('status')).toContainText('JSON importado');
+});
+
+test('admin adiciona várias imagens em base64, exporta e permite remover ou cancelar', async ({page}) => {
+  await page.goto('/admin/');
+  await expect(page.locator('#products tr')).toHaveCount(products.length);
+  await page.getByRole('searchbox').fill(products[0].name);
+  await page.getByRole('button', {name: 'Editar', exact: true}).first().click();
+  const images = ['MV001.webp', 'MV002.webp'].map(name => ({
+    name, mimeType: 'image/webp', buffer: readFileSync(new URL(`../../assets/products/${name}`, import.meta.url)),
+  }));
+  await page.getByLabel('Adicionar imagens', {exact: true}).setInputFiles(images);
+  await expect(page.locator('#image-preview img')).toHaveCount(products[0].images.length + 2);
+  await expect.poll(() => page.locator('#image-preview img').last().evaluate(image => image.naturalWidth)).toBeGreaterThan(0);
+  await page.getByRole('button', {name: 'Salvar produto'}).click();
+  const pending = page.waitForEvent('download');
+  await page.getByRole('button', {name: 'Baixar products.json'}).click();
+  const exported = JSON.parse(readFileSync(await (await pending).path(), 'utf8'));
+  expect(exported[0].images).toEqual([...products[0].images, ...images.map(image => `data:image/webp;base64,${image.buffer.toString('base64')}`)]);
+  await page.getByRole('button', {name: 'Editar', exact: true}).first().click();
+  await page.getByRole('button', {name: 'Remover imagem 2', exact: true}).click();
+  await page.getByRole('button', {name: 'Cancelar', exact: true}).first().click();
+  await page.getByRole('button', {name: 'Editar', exact: true}).first().click();
+  await expect(page.locator('#image-preview img')).toHaveCount(products[0].images.length + 2);
+  await page.getByRole('button', {name: 'Remover imagem 2', exact: true}).click();
+  await page.getByRole('button', {name: 'Salvar produto'}).click();
+  await page.getByRole('button', {name: 'Editar', exact: true}).first().click();
+  await expect(page.locator('#image-preview img')).toHaveCount(products[0].images.length + 1);
+});
+
+test('admin edita faixas com limite exclusivo, ordena e remove', async ({page}) => {
+  const {unitPrice} = await import('../../cart.js');
+  const product = products.find(product => product.priceTiers?.length);
+  await page.goto('/admin/');
+  await expect(page.locator('#products tr')).toHaveCount(products.length);
+  await page.getByRole('searchbox').fill(product.name);
+  await page.getByRole('button', {name: 'Editar', exact: true}).first().click();
+  await expect(page.getByLabel('Quantidade superior a')).toHaveValue(String(product.priceTiers[0].minimumQuantity - 1));
+  await page.getByLabel('Quantidade superior a').fill('30');
+  await page.getByLabel('Preço por unidade (R$)').fill('6');
+  await expect(page.locator('.tier-summary')).toContainText('A partir de 31 unidades');
+  await page.getByRole('button', {name: '+ Adicionar faixa de preço'}).click();
+  await page.getByLabel('Quantidade superior a').last().fill('10');
+  await page.getByLabel('Preço por unidade (R$)').last().fill('8');
+  await page.getByRole('button', {name: 'Salvar produto'}).click();
+  const pending = page.waitForEvent('download');
+  await page.getByRole('button', {name: 'Baixar products.json'}).click();
+  const exported = JSON.parse(readFileSync(await (await pending).path(), 'utf8')).find(p => p.id === product.id);
+  expect(exported.priceTiers).toEqual([{minimumQuantity:11,price:8},{minimumQuantity:31,price:6}]);
+  expect(unitPrice(exported, 10)).toBe(product.price);
+  expect(unitPrice(exported, 11)).toBe(8);
+  expect(unitPrice(exported, 30)).toBe(8);
+  expect(unitPrice(exported, 31)).toBe(6);
+  await page.getByRole('button', {name: 'Editar', exact: true}).first().click();
+  await page.getByRole('button', {name: 'Remover faixa', exact: true}).first().click();
+  await page.getByRole('button', {name: 'Remover faixa', exact: true}).click();
+  await page.getByRole('button', {name: 'Salvar produto'}).click();
+  await page.getByRole('button', {name: 'Editar', exact: true}).first().click();
+  await expect(page.locator('.tier-row')).toHaveCount(0);
+});

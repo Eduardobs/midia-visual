@@ -1,0 +1,138 @@
+import {test, expect} from '@playwright/test';
+import {readFileSync} from 'node:fs';
+
+const products = JSON.parse(readFileSync(new URL('../../data/products.json', import.meta.url)));
+const config = JSON.parse(readFileSync(new URL('../../config.json', import.meta.url)));
+const storageKey = 'midia-visual-cart-v1';
+const cards = page => page.locator('.product-card');
+const add = (page, product) => page.locator(`[data-add="${product.id}"]`).click();
+const openCart = page => page.getByRole('button', {name: /^Abrir sacola/}).click();
+
+async function load(page) {
+  await page.goto('/');
+  await expect(cards(page)).toHaveCount(products.length);
+}
+
+test('catálogo busca sem acentos, filtra por categoria e mostra estado vazio', async ({page}) => {
+  await load(page);
+  const product = products[0];
+  await page.getByRole('searchbox').fill(product.id);
+  await expect(cards(page)).toHaveCount(1);
+  await expect(cards(page).getByRole('heading')).toHaveText(product.name);
+  await page.getByRole('searchbox').fill('produto inexistente xyz');
+  await expect(cards(page)).toHaveCount(0);
+  await expect(page.locator('#products')).toContainText('Nenhum produto encontrado');
+  const accented = products.find(p => /[áéíóúãõç]/i.test(p.name));
+  await page.getByRole('searchbox').fill(accented.name.normalize('NFD').replace(/\p{Diacritic}/gu, ''));
+  await expect(cards(page).filter({has: page.getByRole('heading', {name: accented.name, exact: true})})).toHaveCount(1);
+  await page.getByRole('searchbox').fill('');
+  await page.locator('#categories').getByRole('button', {name: product.category, exact: true}).click();
+  await expect(cards(page)).toHaveCount(products.filter(p => p.category === product.category).length);
+  await expect(page.locator('#categories [aria-pressed="true"]')).toHaveText(product.category);
+});
+
+for (const [sort, compare] of [
+  ['name', (a, b) => a.name.localeCompare(b.name, 'pt-BR')],
+  ['price-up', (a, b) => (a.price ?? Infinity) - (b.price ?? Infinity)],
+  ['price-down', (a, b) => (b.price ?? -Infinity) - (a.price ?? -Infinity)],
+]) {
+  test(`ordenação ${sort}`, async ({page}) => {
+    await load(page);
+    await page.getByRole('combobox').selectOption(sort);
+    await expect(cards(page).locator('h3')).toHaveText([...products].sort(compare).map(p => p.name));
+  });
+}
+
+test('detalhes permitem adicionar o produto à sacola e fechar pelo teclado', async ({page}) => {
+  await load(page);
+  const product = products[0];
+  await page.locator(`[data-detail="${product.id}"]`).click();
+  const dialog = page.getByRole('dialog');
+  await expect(dialog.getByRole('heading')).toHaveText(product.name);
+  await expect(dialog.locator('#detail-image')).toHaveAttribute('src', product.images[0]);
+  await dialog.getByRole('button', {name: /Adicionar à sacola/}).click();
+  await page.keyboard.press('Escape');
+  await expect(dialog).not.toBeVisible();
+  await openCart(page);
+  await expect(page.locator(`#qty-${product.id}`)).toHaveValue(String(product.minimumQuantity));
+});
+
+test('sacola acumula itens, respeita mínimo, persiste e remove', async ({page}) => {
+  await load(page);
+  const product = products[0];
+  await add(page, product);
+  await add(page, product);
+  await openCart(page);
+  await expect(page.locator(`#qty-${product.id}`)).toHaveValue(String(product.minimumQuantity * 2));
+  await page.locator(`#qty-${product.id}`).fill('0');
+  await page.locator('#cart-title').click();
+  await expect(page.locator(`#qty-${product.id}`)).toHaveValue(String(product.minimumQuantity));
+  await page.reload();
+  await expect(cards(page)).toHaveCount(products.length);
+  await openCart(page);
+  await expect(page.locator(`#qty-${product.id}`)).toHaveValue(String(product.minimumQuantity));
+  await page.getByRole('button', {name: `Remover ${product.name}`, exact: true}).click();
+  await expect(page.locator('#cart-checkout')).toBeHidden();
+  await expect(page.locator('#cart-items')).toContainText('Sua sacola está esperando');
+  await expect(page.locator('#cart-count')).toHaveText('0');
+  await page.getByRole('button', {name: /Explorar catálogo/}).click();
+  await expect(page.locator('#cart')).not.toBeVisible();
+  expect(await page.evaluate(key => localStorage.getItem(key), storageKey)).toBe('[]');
+});
+
+test('pedido inclui desconto, itens sob consulta e observações no WhatsApp', async ({page}) => {
+  await page.addInitScript(() => { window.open = (...args) => { window.openedOrder = args; }; });
+  await load(page);
+  const discounted = products.find(p => p.name === 'Chaveiro Pai Nosso');
+  const custom = products.find(p => p.price === null);
+  await add(page, discounted);
+  await add(page, custom);
+  await openCart(page);
+  await page.locator(`#qty-${discounted.id}`).fill('31');
+  await page.locator('#cart-title').click();
+  await expect(page.locator('#total')).toContainText('186,00 + sob consulta');
+  await page.getByRole('textbox', {name: 'Como você imagina a personalização?'}).fill('Azul & dourado + logo #1');
+  await page.getByRole('button', {name: /Enviar pedido pelo WhatsApp/}).click();
+  const [url, target, features] = await page.evaluate(() => window.openedOrder);
+  const order = new URL(url);
+  expect(order.origin).toBe('https://wa.me');
+  expect(order.pathname).toBe(`/${config.whatsapp}`);
+  expect(target).toBe('_blank');
+  expect(features).toBe('noopener,noreferrer');
+  const message = order.searchParams.get('text');
+  expect(message).toContain(`Olá, ${config.name}!`);
+  expect(message).toContain(`(${discounted.id})`);
+  expect(message).toContain('Quantidade: 31');
+  expect(message).toContain('186,00');
+  expect(message).toContain('Valor sob consulta');
+  expect(message).toContain('Azul & dourado + logo #1');
+});
+
+test('restaura sacola descartando produtos desconhecidos', async ({page}) => {
+  await page.addInitScript(({key, id}) => localStorage.setItem(key, JSON.stringify([{id: 'unknown', quantity: 5}, {id, quantity: 0}])), {key: storageKey, id: products[0].id});
+  await load(page);
+  await openCart(page);
+  await expect(page.locator('.cart-item')).toHaveCount(1);
+  await expect(page.locator(`#qty-${products[0].id}`)).toHaveValue(String(products[0].minimumQuantity));
+});
+
+test('sacola funciona quando o armazenamento está bloqueado', async ({page}) => {
+  await page.addInitScript(() => {
+    Storage.prototype.getItem = () => { throw new Error('bloqueado'); };
+    Storage.prototype.setItem = () => { throw new Error('bloqueado'); };
+  });
+  await load(page);
+  await add(page, products[0]);
+  await openCart(page);
+  await expect(page.locator('.cart-item')).toHaveCount(1);
+});
+
+test('falha no catálogo oferece contato e impede checkout', async ({page}) => {
+  await page.route('**/data/products.json', route => route.fulfill({status: 503, body: 'Indisponível'}));
+  await page.goto('/');
+  await expect(page.locator('#results')).toHaveText('Não foi possível carregar o catálogo.');
+  await expect(page.locator('#products a')).toHaveAttribute('href', `https://wa.me/${config.whatsapp}`);
+  await page.locator('#open-cart').click();
+  await expect(page.locator('#cart-items')).toContainText('Catálogo indisponível');
+  await expect(page.locator('#cart-checkout')).toBeHidden();
+});

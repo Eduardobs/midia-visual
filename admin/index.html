@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Administração do catálogo | Mídia Visual</title><link rel="stylesheet" href="./admin.css"><script type="module" src="./admin.js"></script></head>
+<body>
+<header><img src="../assets/brand.webp" alt="Mídia Visual"><span>ADMINISTRAÇÃO DO CATÁLOGO</span></header>
+<main>
+<div class="heading"><div><p class="eyebrow">PRODUTOS</p><h1>Painel administrativo</h1><p>Edite seu catálogo e baixe o arquivo atualizado.</p></div><div class="actions"><button id="import" disabled>Importar JSON</button><button id="download" disabled>Baixar products.json</button><button id="create" class="primary" disabled>+ Novo produto</button></div></div>
+<p class="notice">As edições são salvas como rascunho neste navegador. Para atualizar a vitrine, baixe o JSON e substitua <code>data/products.json</code> no projeto. Este painel não possui autenticação.</p>
+<input id="file" type="file" accept="application/json,.json" hidden>
+<p id="status" role="status">Carregando catálogo…</p>
+<section class="catalog"><div class="toolbar"><label for="search">Buscar pelo nome do produto<input id="search" type="search" placeholder="Digite o nome do produto" disabled></label><span id="count"></span></div><div class="table-wrap"><table><thead><tr><th>Código / Produto</th><th>Categoria</th><th>Preço</th><th>Mínimo</th><th>Ações</th></tr></thead><tbody id="products"></tbody></table></div><p id="empty" hidden>Nenhum produto encontrado.</p></section>
+<details><summary>Visualizar JSON atual</summary><pre id="json"></pre></details>
+</main>
+<dialog id="editor"><form id="form"><div class="dialog-heading"><h2 id="editor-title">Novo produto</h2><button type="button" id="close" aria-label="Fechar">×</button></div><div class="fields">
+<label>Código<input name="id" required></label><label>Nome<input name="name" required></label>
+<div><label for="category">Categoria</label><select id="category" name="category" required></select></div><label>Preço (R$; vazio = sob consulta)<input name="price" type="number" min="0" step="0.01"></label>
+<label>Quantidade mínima<input name="minimumQuantity" type="number" min="1" step="1" required></label><label>Unidade<input name="unit" required></label>
+<label class="wide check"><input name="minimumSpecified" type="checkbox"> Exibir quantidade mínima informada</label>
+<label class="wide">Descrição<textarea name="description" rows="3"></textarea></label>
+<div class="wide"><button id="add-images" class="primary" type="button">Adicionar imagens</button><input id="image-files" type="file" accept="image/*" aria-label="Adicionar imagens" multiple hidden><p class="image-help">Selecione uma ou mais imagens. Elas serão adicionadas ao produto e incluídas no JSON como base64.</p><p id="image-status" role="status"></p><div id="image-preview" class="image-preview"></div></div>
+<input type="hidden" name="images">
+<section class="wide price-tiers" aria-labelledby="tiers-title"><h3 id="tiers-title">Preços por quantidade</h3><p class="image-help">O novo preço por unidade vale somente acima da quantidade informada. Exemplo: acima de 30 vale a partir de 31 unidades.</p><div id="price-tiers"></div><button id="add-tier" type="button">+ Adicionar faixa de preço</button></section>
+</div><p id="form-error" role="alert"></p><div class="actions end"><button type="button" id="cancel">Cancelar</button><button id="save-product" class="primary" type="submit">Salvar produto</button></div></form></dialog>
+<dialog id="removal"><h2>Remover produto?</h2><p id="removal-name"></p><p>A remoção será aplicada ao rascunho local.</p><div class="actions end"><button id="keep">Cancelar</button><button id="confirm-remove" class="danger">Remover produto</button></div></dialog>
+</body></html>
