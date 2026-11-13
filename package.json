@@ -3,9 +3,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --test --test-isolation=none tests/*.test.js",
+    "test": "node --test tests/*.test.js",
     "dev": "python3 -m http.server 8000",
-    "test:unit": "node --test --test-isolation=none tests/*.test.js",
+    "test:unit": "node --test tests/*.test.js",
     "test:e2e": "playwright test",
     "test:all": "npm run test:unit && npm run test:e2e"
   },
