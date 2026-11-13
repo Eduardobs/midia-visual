@@ -6,10 +6,11 @@
     "price": 2.65,
     "minimumQuantity": 100,
     "minimumSpecified": true,
-    "image": "assets/products/MV001.webp",
     "description": "",
-    "sourcePage": 4,
-    "unit": "unidade"
+    "unit": "unidade",
+    "images": [
+      "assets/products/MV001.webp"
+    ]
   },
   {
     "id": "MV002",
@@ -18,10 +19,11 @@
     "price": 16,
     "minimumQuantity": 50,
     "minimumSpecified": true,
-    "image": "assets/products/MV002.webp",
     "description": "",
-    "sourcePage": 4,
-    "unit": "unidade"
+    "unit": "unidade",
+    "images": [
+      "assets/products/MV002.webp"
+    ]
   },
   {
     "id": "MV003",
@@ -30,10 +32,11 @@
     "price": 16,
     "minimumQuantity": 50,
     "minimumSpecified": true,
-    "image": "assets/products/MV003.webp",
     "description": "",
-    "sourcePage": 4,
-    "unit": "unidade"
+    "unit": "unidade",
+    "images": [
+      "assets/products/MV003.webp"
+    ]
   },
   {
     "id": "MV004",
@@ -42,10 +45,11 @@
     "price": 14,
     "minimumQuantity": 10,
     "minimumSpecified": true,
-    "image": "assets/products/MV004.webp",
     "description": "",
-    "sourcePage": 5,
-    "unit": "unidade"
+    "unit": "unidade",
+    "images": [
+      "assets/products/MV004.webp"
+    ]
   },
   {
     "id": "MV005",
@@ -54,10 +58,11 @@
     "price": 12,
     "minimumQuantity": 10,
     "minimumSpecified": true,
-    "image": "assets/products/MV005.webp",
     "description": "",
-    "sourcePage": 5,
-    "unit": "unidade"
+    "unit": "unidade",
+    "images": [
+      "assets/products/MV005.webp"
+    ]
   },
   {
     "id": "MV006",
@@ -66,10 +71,11 @@
     "price": 25,
     "minimumQuantity": 10,
     "minimumSpecified": true,
-    "image": "assets/products/MV006.webp",
     "description": "Sob encomenda. Marrom, preto e azul.",
-    "sourcePage": 5,
-    "unit": "unidade"
+    "unit": "unidade",
+    "images": [
+      "assets/products/MV006.webp"
+    ]
   },
   {
     "id": "MV007",
@@ -78,10 +84,11 @@
     "price": 3.7,
     "minimumQuantity": 50,
     "minimumSpecified": true,
-    "image": "assets/products/MV007.webp",
     "description": "Consulte cores disponíveis.",
-    "sourcePage": 6,
-    "unit": "unidade"
+    "unit": "unidade",
+    "images": [
+      "assets/products/MV007.webp"
+    ]
   },
   {
     "id": "MV008",
@@ -90,10 +97,11 @@
     "price": 3.9,
     "minimumQuantity": 50,
     "minimumSpecified": true,
-    "image": "assets/products/MV008.webp",
     "description": "Consulte cores disponíveis.",
-    "sourcePage": 6,
-    "unit": "unidade"
+    "unit": "unidade",
+    "images": [
+      "assets/products/MV008.webp"
+    ]
   },
   {
     "id": "MV009",
@@ -102,10 +110,11 @@
     "price": 49,
     "minimumQuantity": 5,
     "minimumSpecified": true,
-    "image": "assets/products/MV009.webp",
     "description": "Sob encomenda. Caderneta, caneta, porta-cartão e chaveiro. Preto, vermelho e azul.",
-    "sourcePage": 6,
-    "unit": "unidade"
+    "unit": "unidade",
+    "images": [
+      "assets/products/MV009.webp"
+    ]
   },
   {
     "id": "MV010",
@@ -114,10 +123,11 @@
     "price": 15.9,
     "minimumQuantity": 10,
     "minimumSpecified": true,
-    "image": "assets/products/MV010.webp",
     "description": "Sob encomenda.",
-    "sourcePage": 7,
-    "unit": "unidade"
+    "unit": "unidade",
+    "images": [
+      "assets/products/MV010.webp"
+    ]
   },
   {
     "id": "MV011",
@@ -126,10 +136,11 @@
     "price": 25,
     "minimumQuantity": 10,
     "minimumSpecified": true,
-    "image": "assets/products/MV011.webp",
     "description": "Sob encomenda. Verde, azul, vermelho, branco e preto.",
-    "sourcePage": 7,
-    "unit": "unidade"
+    "unit": "unidade",
+    "images": [
+      "assets/products/MV011.webp"
+    ]
   },
   {
     "id": "MV012",
@@ -138,10 +149,11 @@
     "price": 18,
     "minimumQuantity": 10,
     "minimumSpecified": true,
-    "image": "assets/products/MV012.webp",
     "description": "Sob encomenda. Preto, azul, verde, vermelho e laranja.",
-    "sourcePage": 7,
-    "unit": "unidade"
+    "unit": "unidade",
+    "images": [
+      "assets/products/MV012.webp"
+    ]
   },
   {
     "id": "MV013",
@@ -150,15 +162,16 @@
     "price": 9,
     "minimumQuantity": 1,
     "minimumSpecified": false,
-    "image": "assets/products/MV013.webp",
     "description": "Acima de 30 unidades: R$ 6,00 cada.",
-    "sourcePage": 8,
     "unit": "unidade",
     "priceTiers": [
       {
         "minimumQuantity": 31,
         "price": 6
       }
+    ],
+    "images": [
+      "assets/products/MV013.webp"
     ]
   },
   {
@@ -168,10 +181,11 @@
     "price": 6,
     "minimumQuantity": 10,
     "minimumSpecified": true,
-    "image": "assets/products/MV014.webp",
     "description": "Frase personalizada. Espelho prata ou dourado.",
-    "sourcePage": 8,
-    "unit": "unidade"
+    "unit": "unidade",
+    "images": [
+      "assets/products/MV014.webp"
+    ]
   },
   {
     "id": "MV015",
@@ -180,10 +194,11 @@
     "price": 22,
     "minimumQuantity": 1,
     "minimumSpecified": false,
-    "image": "assets/products/MV015.webp",
     "description": "Gravado a laser personalizado.",
-    "sourcePage": 8,
-    "unit": "unidade"
+    "unit": "unidade",
+    "images": [
+      "assets/products/MV015.webp"
+    ]
   },
   {
     "id": "MV016",
@@ -192,10 +207,11 @@
     "price": 15,
     "minimumQuantity": 1,
     "minimumSpecified": false,
-    "image": "assets/products/MV016.webp",
     "description": "Acrílico espelhado dourado ou prata. Gravação a laser personalizada.",
-    "sourcePage": 9,
-    "unit": "unidade"
+    "unit": "unidade",
+    "images": [
+      "assets/products/MV016.webp"
+    ]
   },
   {
     "id": "MV017",
@@ -204,10 +220,11 @@
     "price": 25,
     "minimumQuantity": 1,
     "minimumSpecified": false,
-    "image": "assets/products/MV017.webp",
     "description": "Valor por kit. Acrílico espelhado dourado ou prata.",
-    "sourcePage": 9,
-    "unit": "kit"
+    "unit": "kit",
+    "images": [
+      "assets/products/MV017.webp"
+    ]
   },
   {
     "id": "MV018",
@@ -216,10 +233,11 @@
     "price": 12,
     "minimumQuantity": 1,
     "minimumSpecified": false,
-    "image": "assets/products/MV018.webp",
     "description": "Acrílico preto, branco ou transparente. Gravação a laser personalizada.",
-    "sourcePage": 9,
-    "unit": "unidade"
+    "unit": "unidade",
+    "images": [
+      "assets/products/MV018.webp"
+    ]
   },
   {
     "id": "MV019",
@@ -228,10 +246,11 @@
     "price": 44.9,
     "minimumQuantity": 5,
     "minimumSpecified": true,
-    "image": "assets/products/MV019.webp",
     "description": "Eucalipto.",
-    "sourcePage": 10,
-    "unit": "unidade"
+    "unit": "unidade",
+    "images": [
+      "assets/products/MV019.webp"
+    ]
   },
   {
     "id": "MV020",
@@ -240,10 +259,11 @@
     "price": 54.9,
     "minimumQuantity": 5,
     "minimumSpecified": true,
-    "image": "assets/products/MV020.webp",
     "description": "Eucalipto.",
-    "sourcePage": 10,
-    "unit": "unidade"
+    "unit": "unidade",
+    "images": [
+      "assets/products/MV020.webp"
+    ]
   },
   {
     "id": "MV021",
@@ -252,10 +272,11 @@
     "price": 47.9,
     "minimumQuantity": 5,
     "minimumSpecified": true,
-    "image": "assets/products/MV021.webp",
     "description": "Eucalipto.",
-    "sourcePage": 10,
-    "unit": "unidade"
+    "unit": "unidade",
+    "images": [
+      "assets/products/MV021.webp"
+    ]
   },
   {
     "id": "MV022",
@@ -264,10 +285,11 @@
     "price": 42,
     "minimumQuantity": 10,
     "minimumSpecified": true,
-    "image": "assets/products/MV022.webp",
     "description": "",
-    "sourcePage": 11,
-    "unit": "unidade"
+    "unit": "unidade",
+    "images": [
+      "assets/products/MV022.webp"
+    ]
   },
   {
     "id": "MV023",
@@ -276,10 +298,11 @@
     "price": 55,
     "minimumQuantity": 10,
     "minimumSpecified": true,
-    "image": "assets/products/MV023.webp",
     "description": "",
-    "sourcePage": 11,
-    "unit": "unidade"
+    "unit": "unidade",
+    "images": [
+      "assets/products/MV023.webp"
+    ]
   },
   {
     "id": "MV024",
@@ -288,10 +311,11 @@
     "price": 69,
     "minimumQuantity": 1,
     "minimumSpecified": false,
-    "image": "assets/products/MV024.webp",
     "description": "30 × 5 cm. Lâmina de aço inox de 17 cm, espessura de 3,5 mm. Cabo de madeira.",
-    "sourcePage": 12,
-    "unit": "unidade"
+    "unit": "unidade",
+    "images": [
+      "assets/products/MV024.webp"
+    ]
   },
   {
     "id": "MV025",
@@ -300,10 +324,11 @@
     "price": 65,
     "minimumQuantity": 1,
     "minimumSpecified": false,
-    "image": "assets/products/MV025.webp",
     "description": "Saca-rolhas, bico condutor com tampa, cortador de lacre e wine colar. Maleta com alça, trava e interior de veludo.",
-    "sourcePage": 12,
-    "unit": "unidade"
+    "unit": "unidade",
+    "images": [
+      "assets/products/MV025.webp"
+    ]
   },
   {
     "id": "MV026",
@@ -312,10 +337,11 @@
     "price": 26,
     "minimumQuantity": 5,
     "minimumSpecified": true,
-    "image": "assets/products/MV026.webp",
     "description": "",
-    "sourcePage": 13,
-    "unit": "unidade"
+    "unit": "unidade",
+    "images": [
+      "assets/products/MV026.webp"
+    ]
   },
   {
     "id": "MV027",
@@ -324,10 +350,11 @@
     "price": 85,
     "minimumQuantity": 1,
     "minimumSpecified": false,
-    "image": "assets/products/MV027.webp",
     "description": "",
-    "sourcePage": 13,
-    "unit": "unidade"
+    "unit": "unidade",
+    "images": [
+      "assets/products/MV027.webp"
+    ]
   },
   {
     "id": "MV028",
@@ -336,10 +363,11 @@
     "price": 69.9,
     "minimumQuantity": 1,
     "minimumSpecified": false,
-    "image": "assets/products/MV028.webp",
     "description": "Sob encomenda. 2 copos de vidro 200 ml, 6 cubos de granito e pegador metálico com pontas em silicone.",
-    "sourcePage": 13,
-    "unit": "unidade"
+    "unit": "unidade",
+    "images": [
+      "assets/products/MV028.webp"
+    ]
   },
   {
     "id": "MV029",
@@ -348,10 +376,11 @@
     "price": 39,
     "minimumQuantity": 10,
     "minimumSpecified": true,
-    "image": "assets/products/MV029.webp",
     "description": "",
-    "sourcePage": 14,
-    "unit": "unidade"
+    "unit": "unidade",
+    "images": [
+      "assets/products/MV029.webp"
+    ]
   },
   {
     "id": "MV030",
@@ -360,10 +389,11 @@
     "price": 35,
     "minimumQuantity": 10,
     "minimumSpecified": true,
-    "image": "assets/products/MV030.webp",
     "description": "",
-    "sourcePage": 14,
-    "unit": "unidade"
+    "unit": "unidade",
+    "images": [
+      "assets/products/MV030.webp"
+    ]
   },
   {
     "id": "MV031",
@@ -372,10 +402,11 @@
     "price": 270,
     "minimumQuantity": 1,
     "minimumSpecified": false,
-    "image": "assets/products/MV031.webp",
     "description": "Mateira, porta-erva, garrafa 1 L, bomba e cuia porongo pé de ferro.",
-    "sourcePage": 15,
-    "unit": "unidade"
+    "unit": "unidade",
+    "images": [
+      "assets/products/MV031.webp"
+    ]
   },
   {
     "id": "MV032",
@@ -384,10 +415,11 @@
     "price": 67,
     "minimumQuantity": 5,
     "minimumSpecified": true,
-    "image": "assets/products/MV032.webp",
     "description": "Cuia porongo pé de massa.",
-    "sourcePage": 15,
-    "unit": "unidade"
+    "unit": "unidade",
+    "images": [
+      "assets/products/MV032.webp"
+    ]
   },
   {
     "id": "MV033",
@@ -396,10 +428,11 @@
     "price": 39,
     "minimumQuantity": 10,
     "minimumSpecified": true,
-    "image": "assets/products/MV033.webp",
     "description": "",
-    "sourcePage": 16,
-    "unit": "unidade"
+    "unit": "unidade",
+    "images": [
+      "assets/products/MV033.webp"
+    ]
   },
   {
     "id": "MV034",
@@ -408,10 +441,11 @@
     "price": 49,
     "minimumQuantity": 10,
     "minimumSpecified": true,
-    "image": "assets/products/MV034.webp",
     "description": "",
-    "sourcePage": 16,
-    "unit": "unidade"
+    "unit": "unidade",
+    "images": [
+      "assets/products/MV034.webp"
+    ]
   },
   {
     "id": "MV035",
@@ -420,10 +454,11 @@
     "price": 26,
     "minimumQuantity": 10,
     "minimumSpecified": true,
-    "image": "assets/products/MV035.webp",
     "description": "",
-    "sourcePage": 16,
-    "unit": "unidade"
+    "unit": "unidade",
+    "images": [
+      "assets/products/MV035.webp"
+    ]
   },
   {
     "id": "MV036",
@@ -432,10 +467,11 @@
     "price": 49,
     "minimumQuantity": 1,
     "minimumSpecified": false,
-    "image": "assets/products/MV036.webp",
     "description": "",
-    "sourcePage": 17,
-    "unit": "unidade"
+    "unit": "unidade",
+    "images": [
+      "assets/products/MV036.webp"
+    ]
   },
   {
     "id": "MV037",
@@ -444,10 +480,11 @@
     "price": 39,
     "minimumQuantity": 10,
     "minimumSpecified": true,
-    "image": "assets/products/MV037.webp",
     "description": "Sob encomenda. Consulte cores.",
-    "sourcePage": 17,
-    "unit": "unidade"
+    "unit": "unidade",
+    "images": [
+      "assets/products/MV037.webp"
+    ]
   },
   {
     "id": "MV038",
@@ -456,10 +493,11 @@
     "price": 49,
     "minimumQuantity": 10,
     "minimumSpecified": true,
-    "image": "assets/products/MV038.webp",
     "description": "Sob encomenda. Consulte cores.",
-    "sourcePage": 17,
-    "unit": "unidade"
+    "unit": "unidade",
+    "images": [
+      "assets/products/MV038.webp"
+    ]
   },
   {
     "id": "MV039",
@@ -468,10 +506,11 @@
     "price": 39,
     "minimumQuantity": 5,
     "minimumSpecified": true,
-    "image": "assets/products/MV039.webp",
     "description": "Preto.",
-    "sourcePage": 18,
-    "unit": "unidade"
+    "unit": "unidade",
+    "images": [
+      "assets/products/MV039.webp"
+    ]
   },
   {
     "id": "MV040",
@@ -480,10 +519,11 @@
     "price": 36.9,
     "minimumQuantity": 10,
     "minimumSpecified": true,
-    "image": "assets/products/MV040.webp",
     "description": "Sob encomenda. Off white, preto, rosa e marrom.",
-    "sourcePage": 18,
-    "unit": "unidade"
+    "unit": "unidade",
+    "images": [
+      "assets/products/MV040.webp"
+    ]
   },
   {
     "id": "MV041",
@@ -492,10 +532,11 @@
     "price": 39.9,
     "minimumQuantity": 5,
     "minimumSpecified": true,
-    "image": "assets/products/MV041.webp",
     "description": "Sob encomenda. Azul, cinza e preto.",
-    "sourcePage": 18,
-    "unit": "unidade"
+    "unit": "unidade",
+    "images": [
+      "assets/products/MV041.webp"
+    ]
   },
   {
     "id": "MV042",
@@ -504,10 +545,11 @@
     "price": 54,
     "minimumQuantity": 1,
     "minimumSpecified": false,
-    "image": "assets/products/MV042.webp",
     "description": "",
-    "sourcePage": 19,
-    "unit": "unidade"
+    "unit": "unidade",
+    "images": [
+      "assets/products/MV042.webp"
+    ]
   },
   {
     "id": "MV043",
@@ -516,10 +558,11 @@
     "price": 85,
     "minimumQuantity": 5,
     "minimumSpecified": true,
-    "image": "assets/products/MV043.webp",
     "description": "Sob encomenda.",
-    "sourcePage": 19,
-    "unit": "unidade"
+    "unit": "unidade",
+    "images": [
+      "assets/products/MV043.webp"
+    ]
   },
   {
     "id": "MV044",
@@ -528,10 +571,11 @@
     "price": 35,
     "minimumQuantity": 5,
     "minimumSpecified": true,
-    "image": "assets/products/MV044.webp",
     "description": "",
-    "sourcePage": 19,
-    "unit": "unidade"
+    "unit": "unidade",
+    "images": [
+      "assets/products/MV044.webp"
+    ]
   },
   {
     "id": "MV045",
@@ -540,10 +584,11 @@
     "price": 110,
     "minimumQuantity": 1,
     "minimumSpecified": false,
-    "image": "assets/products/MV045.webp",
     "description": "ACM gravado a laser 21 × 15 cm. Estojo em veludo preto.",
-    "sourcePage": 21,
-    "unit": "unidade"
+    "unit": "unidade",
+    "images": [
+      "assets/products/MV045.webp"
+    ]
   },
   {
     "id": "MV046",
@@ -552,10 +597,11 @@
     "price": 20,
     "minimumQuantity": 1,
     "minimumSpecified": false,
-    "image": "assets/products/MV046.webp",
     "description": "Somente um lado. Acrílico preto, branco ou transparente. Detalhes dourado ou prata espelhado.",
-    "sourcePage": 22,
-    "unit": "unidade"
+    "unit": "unidade",
+    "images": [
+      "assets/products/MV046.webp"
+    ]
   },
   {
     "id": "MV047",
@@ -564,10 +610,11 @@
     "price": 30,
     "minimumQuantity": 1,
     "minimumSpecified": false,
-    "image": "assets/products/MV047.webp",
     "description": "Montamos seu modelo. Acrílico preto ou branco. Detalhes dourado ou prata espelhado.",
-    "sourcePage": 23,
-    "unit": "unidade"
+    "unit": "unidade",
+    "images": [
+      "assets/products/MV047.webp"
+    ]
   },
   {
     "id": "MV048",
@@ -576,10 +623,11 @@
     "price": 45,
     "minimumQuantity": 1,
     "minimumSpecified": false,
-    "image": "assets/products/MV048.webp",
     "description": "Montamos seu modelo. Acrílico preto ou branco. Detalhes dourado ou prata espelhado.",
-    "sourcePage": 24,
-    "unit": "unidade"
+    "unit": "unidade",
+    "images": [
+      "assets/products/MV048.webp"
+    ]
   },
   {
     "id": "MV049",
@@ -588,10 +636,11 @@
     "price": null,
     "minimumQuantity": 1,
     "minimumSpecified": false,
-    "image": "assets/products/MV049.webp",
     "description": "Projeto sob consulta.",
-    "sourcePage": 25,
-    "unit": "unidade"
+    "unit": "unidade",
+    "images": [
+      "assets/products/MV049.webp"
+    ]
   },
   {
     "id": "MV050",
@@ -600,10 +649,11 @@
     "price": null,
     "minimumQuantity": 1,
     "minimumSpecified": false,
-    "image": "assets/products/MV050.webp",
     "description": "Projeto sob consulta.",
-    "sourcePage": 25,
-    "unit": "unidade"
+    "unit": "unidade",
+    "images": [
+      "assets/products/MV050.webp"
+    ]
   },
   {
     "id": "MV051",
@@ -612,10 +662,11 @@
     "price": null,
     "minimumQuantity": 1,
     "minimumSpecified": false,
-    "image": "assets/products/MV051.webp",
     "description": "Projeto sob consulta.",
-    "sourcePage": 25,
-    "unit": "unidade"
+    "unit": "unidade",
+    "images": [
+      "assets/products/MV051.webp"
+    ]
   },
   {
     "id": "MV052",
@@ -624,10 +675,11 @@
     "price": null,
     "minimumQuantity": 1,
     "minimumSpecified": false,
-    "image": "assets/products/MV052.webp",
     "description": "Projeto sob consulta.",
-    "sourcePage": 26,
-    "unit": "unidade"
+    "unit": "unidade",
+    "images": [
+      "assets/products/MV052.webp"
+    ]
   },
   {
     "id": "MV053",
@@ -636,10 +688,11 @@
     "price": null,
     "minimumQuantity": 1,
     "minimumSpecified": false,
-    "image": "assets/products/MV053.webp",
     "description": "Projeto sob consulta.",
-    "sourcePage": 26,
-    "unit": "unidade"
+    "unit": "unidade",
+    "images": [
+      "assets/products/MV053.webp"
+    ]
   },
   {
     "id": "MV054",
@@ -648,10 +701,11 @@
     "price": null,
     "minimumQuantity": 1,
     "minimumSpecified": false,
-    "image": "assets/products/MV054.webp",
     "description": "Projeto sob consulta.",
-    "sourcePage": 26,
-    "unit": "unidade"
+    "unit": "unidade",
+    "images": [
+      "assets/products/MV054.webp"
+    ]
   },
   {
     "id": "MV055",
@@ -660,10 +714,11 @@
     "price": null,
     "minimumQuantity": 1,
     "minimumSpecified": false,
-    "image": "assets/products/MV055.webp",
     "description": "Consulte modelos e valores.",
-    "sourcePage": 27,
-    "unit": "unidade"
+    "unit": "unidade",
+    "images": [
+      "assets/products/MV055.webp"
+    ]
   },
   {
     "id": "MV056",
@@ -672,10 +727,11 @@
     "price": null,
     "minimumQuantity": 1,
     "minimumSpecified": false,
-    "image": "assets/products/MV056.webp",
     "description": "Consulte modelos e valores.",
-    "sourcePage": 27,
-    "unit": "unidade"
+    "unit": "unidade",
+    "images": [
+      "assets/products/MV056.webp"
+    ]
   },
   {
     "id": "MV057",
@@ -684,10 +740,11 @@
     "price": null,
     "minimumQuantity": 1,
     "minimumSpecified": false,
-    "image": "assets/products/MV057.webp",
     "description": "Consulte modelos disponíveis.",
-    "sourcePage": 29,
-    "unit": "unidade"
+    "unit": "unidade",
+    "images": [
+      "assets/products/MV057.webp"
+    ]
   },
   {
     "id": "MV058",
@@ -696,10 +753,11 @@
     "price": null,
     "minimumQuantity": 1,
     "minimumSpecified": false,
-    "image": "assets/products/MV058.webp",
     "description": "Consulte modelos disponíveis.",
-    "sourcePage": 29,
-    "unit": "unidade"
+    "unit": "unidade",
+    "images": [
+      "assets/products/MV058.webp"
+    ]
   },
   {
     "id": "MV059",
@@ -708,10 +766,11 @@
     "price": null,
     "minimumQuantity": 1,
     "minimumSpecified": false,
-    "image": "assets/products/MV059.webp",
     "description": "Consulte modelos disponíveis.",
-    "sourcePage": 29,
-    "unit": "unidade"
+    "unit": "unidade",
+    "images": [
+      "assets/products/MV059.webp"
+    ]
   },
   {
     "id": "MV060",
@@ -720,10 +779,11 @@
     "price": null,
     "minimumQuantity": 1,
     "minimumSpecified": false,
-    "image": "assets/products/MV060.webp",
     "description": "Consulte modelos disponíveis.",
-    "sourcePage": 29,
-    "unit": "unidade"
+    "unit": "unidade",
+    "images": [
+      "assets/products/MV060.webp"
+    ]
   },
   {
     "id": "MV061",
@@ -732,9 +792,10 @@
     "price": null,
     "minimumQuantity": 1,
     "minimumSpecified": false,
-    "image": "assets/products/MV061.webp",
     "description": "Consulte modelos disponíveis.",
-    "sourcePage": 29,
-    "unit": "unidade"
+    "unit": "unidade",
+    "images": [
+      "assets/products/MV061.webp"
+    ]
   }
 ]

@@ -18,7 +18,7 @@ export function restoreCart(raw, products) {
   } catch { return []; }
 }
 export const money = value => new Intl.NumberFormat('pt-BR', {style:'currency', currency:'BRL'}).format(value);
-export function buildMessage(cart, products, notes) {
+export function buildMessage(cart, products, notes, storeName) {
   let total = 0, unknown = false;
   const lines = cart.map(item => {
     const p = products.find(product => product.id === item.id);
@@ -26,5 +26,5 @@ export function buildMessage(cart, products, notes) {
     if (price === null) unknown = true; else total += Math.round(price * 100) * item.quantity;
     return `• ${p.name} (${p.id})\n  Quantidade: ${item.quantity} | ${price === null ? 'Valor sob consulta' : money(price) + '/' + p.unit + ' | Subtotal: ' + money(price * item.quantity)}`;
   });
-  return ['Olá, Mídia Visual! Gostaria de solicitar um orçamento:', '', ...lines, '', `${unknown ? 'Subtotal dos itens com preço' : 'Total dos produtos'}: ${money(total / 100)}`, ...(unknown ? ['Há itens com valor sob consulta.'] : []), ...(notes.trim() ? ['', 'Cores e personalização: ' + notes.trim()] : []), '', 'Por favor, confirmem a disponibilidade, personalização, prazo e frete. Enviarei a arte de gravação nesta conversa.'].join('\n');
+  return [`Olá, ${storeName}! Gostaria de solicitar um orçamento:`, '', ...lines, '', `${unknown ? 'Subtotal dos itens com preço' : 'Total dos produtos'}: ${money(total / 100)}`, ...(unknown ? ['Há itens com valor sob consulta.'] : []), ...(notes.trim() ? ['', 'Cores e personalização: ' + notes.trim()] : []), '', 'Por favor, confirmem a disponibilidade, personalização, prazo e frete. Enviarei a arte de gravação nesta conversa.'].join('\n');
 }

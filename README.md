@@ -24,13 +24,25 @@ Edite `data/products.json` e coloque fotos em `assets/products/`. Não é necess
 
 - `id`: identificador único estável, também enviado no WhatsApp.
 - `name`, `category`, `description`: dados exibidos no catálogo.
-- `image`: caminho relativo à raiz do site, por exemplo `assets/products/MV001.webp`.
+- `images`: lista de caminhos relativos à raiz do site. A primeira foto aparece no catálogo e na sacola; todas aparecem na galeria do detalhe do produto.
 - `price`: valor numérico em reais; `null` para orçamento sob consulta.
 - `minimumQuantity`: mínimo aceito na sacola.
 - `minimumSpecified`: indica se o PDF informa um mínimo. Quando não informa, a sacola começa em 1 e a página orienta a consultar as condições.
 - `unit`: unidade de cobrança (`unidade` ou `kit`).
 - `priceTiers`: opcional, regras de preço por quantidade, com `minimumQuantity` e `price`.
-- `sourcePage`: página do PDF de origem para conferência.
+
+O PDF é apenas uma referência editorial: ele não faz parte dos arquivos do projeto nem é necessário para executar ou publicar o site.
+
+Exemplo de galeria (adicione as fotos correspondentes em `assets/products/`):
+
+```json
+"images": [
+  "assets/products/MV001.webp",
+  "assets/products/MV001-verso.webp"
+]
+```
+
+Clique na foto do catálogo para abrir o detalhe do produto. As miniaturas permitem escolher as fotos adicionais. Os produtos atuais têm uma foto cada; outras fotos podem ser incluídas na lista quando disponíveis.
 
 Os 61 produtos foram transcritos do **Catálogo Mídia Visual – Nov 2026.pdf** fornecido pelo proprietário. Fotos extraídas do PDF e convertidas em WebP. Produtos sem preço no documento permanecem sob consulta; fotos de modelos ilustram essas linhas personalizadas. O chaveiro Pai Nosso custa R$ 9,00 até 30 unidades e R$ 6,00 a partir de 31. As condições de pagamento e entrega também vêm do PDF. Preços, cores, arte e disponibilidade são confirmados pela loja.
 
@@ -38,7 +50,7 @@ A logo e o banner foram recuperados do site público https://www.midiavisualtaqu
 
 ## WhatsApp e sacola
 
-O número está em `data/store.json`, no formato internacional, apenas dígitos: `5551997393969`. Ele foi confirmado pelo catálogo. Os links diretos no rodapé e no fallback de erro estão em `index.html` e `app.js`; atualize-os também ao trocar o número.
+As configurações ficam em `config.json`: `name` (nome da loja), `whatsapp` (número internacional, apenas dígitos) e `instagram` (URL HTTPS). O WhatsApp do rodapé, do pedido e da mensagem de erro usa essa única configuração. O telefone exibido é formatado automaticamente; o nome da loja também é usado na mensagem do pedido. Não é necessário editar HTML ou JavaScript para trocar esses dados.
 
 A sacola respeita o mínimo de cada produto e permite alterar a quantidade ou remover itens. Dados inválidos ou produtos removidos do catálogo são descartados na restauração. A mensagem inclui itens, códigos, quantidades, valores, desconto por quantidade, subtotal e observações. Itens sob consulta não entram no subtotal conhecido. Frete não está incluído. O cliente revisa e envia a mensagem no WhatsApp; o site não a envia automaticamente.
 
