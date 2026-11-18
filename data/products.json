@@ -6,10 +6,18 @@
     "price": 2.65,
     "minimumQuantity": 100,
     "minimumSpecified": true,
-    "description": "",
+    "description": "Cores disponíveis: Vermelho, azul, verde e preto.",
     "unit": "unidade",
     "images": [
-      "assets/products/MV001.webp"
+      "assets/products/chaveiro-pe-de-galinha-1.webp",
+      "assets/products/chaveiro-pe-de-galinha-2.webp",
+      "assets/products/chaveiro-pe-de-galinha-3.webp",
+      "assets/products/chaveiro-pe-de-galinha-4.webp",
+      "assets/products/chaveiro-pe-de-galinha-5.webp",
+      "assets/products/chaveiro-pe-de-galinha-6.webp",
+      "assets/products/chaveiro-pe-de-galinha-7.webp",
+      "assets/products/chaveiro-pe-de-galinha-8.webp",
+      "assets/products/chaveiro-pe-de-galinha-9.webp"
     ]
   },
   {
@@ -19,10 +27,11 @@
     "price": 16,
     "minimumQuantity": 50,
     "minimumSpecified": true,
-    "description": "",
+    "description": "Cor disponível: Preto.",
     "unit": "unidade",
     "images": [
-      "assets/products/MV002.webp"
+      "assets/products/chaveiro-de-couro-1.webp",
+      "assets/products/chaveiro-de-couro-2.webp"
     ]
   },
   {
@@ -32,23 +41,28 @@
     "price": 16,
     "minimumQuantity": 50,
     "minimumSpecified": true,
-    "description": "",
+    "description": "Cor disponível: Preto.",
     "unit": "unidade",
     "images": [
-      "assets/products/MV003.webp"
+      "assets/products/MV003.webp",
+      "assets/products/chaveiro-metal-e-couro-2.webp",
+      "assets/products/chaveiro-metal-e-couro-3.webp",
+      "assets/products/chaveiro-metal-e-couro-4.webp",
+      "assets/products/chaveiro-metal-e-couro-5.webp"
     ]
   },
   {
     "id": "MV004",
     "name": "Abridor de garrafas cabo madeira",
-    "category": "Acessórios",
+    "category": "Churrasco e cozinha",
     "price": 14,
     "minimumQuantity": 10,
     "minimumSpecified": true,
     "description": "",
     "unit": "unidade",
     "images": [
-      "assets/products/MV004.webp"
+      "assets/products/abridor-de-garrafas-cabo-madeira-1.webp",
+      "assets/products/abridor-de-garrafas-cabo-madeira-2.webp"
     ]
   },
   {
@@ -71,10 +85,12 @@
     "price": 25,
     "minimumQuantity": 10,
     "minimumSpecified": true,
-    "description": "Sob encomenda. Marrom, preto e azul.",
+    "description": "Cor disponível: marrom.",
     "unit": "unidade",
     "images": [
-      "assets/products/MV006.webp"
+      "assets/products/lixocar-de-couro-sintetico-1.webp",
+      "assets/products/lixocar-de-couro-sintetico-2.webp",
+      "assets/products/lixocar-de-couro-sintetico-3.webp"
     ]
   },
   {
@@ -82,25 +98,35 @@
     "name": "Caneta metal",
     "category": "Canetas",
     "price": 3.7,
-    "minimumQuantity": 50,
+    "minimumQuantity": 30,
     "minimumSpecified": true,
-    "description": "Consulte cores disponíveis.",
+    "description": "Preto, Vermelho, Rosa e Azul.",
     "unit": "unidade",
     "images": [
-      "assets/products/MV007.webp"
+      "assets/products/caneta-metal-1.webp",
+      "assets/products/caneta-metal-2.webp",
+      "assets/products/caneta-metal-3.webp",
+      "assets/products/caneta-metal-4.webp",
+      "assets/products/caneta-metal-5.webp",
+      "assets/products/caneta-metal-6.webp",
+      "assets/products/caneta-metal-7.webp"
     ]
   },
   {
     "id": "MV008",
-    "name": "Caneta metal touch",
+    "name": "Caneta metal + touch",
     "category": "Canetas",
     "price": 3.9,
     "minimumQuantity": 50,
     "minimumSpecified": true,
-    "description": "Consulte cores disponíveis.",
+    "description": "Cores disponíveis: Preto, rosa, verde, azul claro e azul escuro.",
     "unit": "unidade",
     "images": [
-      "assets/products/MV008.webp"
+      "assets/products/caneta-metal-touch-1.webp",
+      "assets/products/caneta-metal-touch-2.webp",
+      "assets/products/caneta-metal-touch-3.webp",
+      "assets/products/caneta-metal-touch-4.webp",
+      "assets/products/caneta-metal-touch-5.webp"
     ]
   },
   {
@@ -110,10 +136,15 @@
     "price": 49,
     "minimumQuantity": 5,
     "minimumSpecified": true,
-    "description": "Sob encomenda. Caderneta, caneta, porta-cartão e chaveiro. Preto, vermelho e azul.",
+    "description": "Kit com caderneta, caneta, porta-cartão e chaveiro, na caixinha preta.\nCores disponíveis: Preto e azul.",
     "unit": "unidade",
     "images": [
-      "assets/products/MV009.webp"
+      "assets/products/MV009.webp",
+      "assets/products/kit-executivo-4-pecas-2.webp",
+      "assets/products/kit-executivo-4-pecas-3.webp",
+      "assets/products/kit-executivo-4-pecas-4.webp",
+      "assets/products/kit-executivo-4-pecas-5.webp",
+      "assets/products/kit-executivo-4-pecas-6.webp"
     ]
   },
   {
@@ -136,7 +167,7 @@
     "price": 25,
     "minimumQuantity": 10,
     "minimumSpecified": true,
-    "description": "Sob encomenda. Verde, azul, vermelho, branco e preto.",
+    "description": "Sob encomenda.",
     "unit": "unidade",
     "images": [
       "assets/products/MV011.webp"
@@ -149,10 +180,13 @@
     "price": 18,
     "minimumQuantity": 10,
     "minimumSpecified": true,
-    "description": "Sob encomenda. Preto, azul, verde, vermelho e laranja.",
+    "description": "Cor disponível: Preto.",
     "unit": "unidade",
     "images": [
-      "assets/products/MV012.webp"
+      "assets/products/MV012.webp",
+      "assets/products/caderneta-com-caneta-2.webp",
+      "assets/products/caderneta-com-caneta-3.webp",
+      "assets/products/caderneta-com-caneta-4.webp"
     ]
   },
   {
@@ -171,7 +205,8 @@
       }
     ],
     "images": [
-      "assets/products/MV013.webp"
+      "assets/products/chaveiro-pai-nosso-1.webp",
+      "assets/products/chaveiro-pai-nosso-2.webp"
     ]
   },
   {
@@ -184,20 +219,28 @@
     "description": "Frase personalizada. Espelho prata ou dourado.",
     "unit": "unidade",
     "images": [
-      "assets/products/MV014.webp"
+      "assets/products/chaveiro-flor-com-espelho-1.webp",
+      "assets/products/chaveiro-flor-com-espelho-2.webp"
     ]
   },
   {
     "id": "MV015",
-    "name": "Kit cevador + espátula",
+    "name": "Kit Vira Mate + Espátula",
     "category": "Chimarrão",
-    "price": 22,
+    "price": 20,
     "minimumQuantity": 1,
     "minimumSpecified": false,
     "description": "Gravado a laser personalizado.",
     "unit": "unidade",
     "images": [
-      "assets/products/MV015.webp"
+      "assets/products/kit-vira-mate-espatula-1.webp",
+      "assets/products/kit-vira-mate-espatula-2.webp",
+      "assets/products/kit-vira-mate-espatula-3.webp",
+      "assets/products/kit-vira-mate-espatula-4.webp",
+      "assets/products/kit-vira-mate-espatula-5.webp",
+      "assets/products/kit-vira-mate-espatula-6.webp",
+      "assets/products/kit-vira-mate-espatula-7.webp",
+      "assets/products/kit-vira-mate-espatula-8.webp"
     ]
   },
   {
@@ -210,7 +253,9 @@
     "description": "Acrílico espelhado dourado ou prata. Gravação a laser personalizada.",
     "unit": "unidade",
     "images": [
-      "assets/products/MV016.webp"
+      "assets/products/marca-pagina-espelhado-1.webp",
+      "assets/products/marca-pagina-espelhado-2.webp",
+      "assets/products/marca-pagina-espelhado-3.webp"
     ]
   },
   {
@@ -223,27 +268,15 @@
     "description": "Valor por kit. Acrílico espelhado dourado ou prata.",
     "unit": "kit",
     "images": [
-      "assets/products/MV017.webp"
-    ]
-  },
-  {
-    "id": "MV018",
-    "name": "Marca página personalizado",
-    "category": "Acrílico e MDF",
-    "price": 12,
-    "minimumQuantity": 1,
-    "minimumSpecified": false,
-    "description": "Acrílico preto, branco ou transparente. Gravação a laser personalizada.",
-    "unit": "unidade",
-    "images": [
-      "assets/products/MV018.webp"
+      "assets/products/chaveiro-casal-1.webp",
+      "assets/products/chaveiro-casal-2.webp"
     ]
   },
   {
     "id": "MV019",
-    "name": "Tábua de carne 34 × 24 cm",
+    "name": "Tábua de carne 45x30cm",
     "category": "Churrasco e cozinha",
-    "price": 44.9,
+    "price": 54.9,
     "minimumQuantity": 5,
     "minimumSpecified": true,
     "description": "Eucalipto.",
@@ -254,20 +287,20 @@
   },
   {
     "id": "MV020",
-    "name": "Tábua de carne 45 × 30 cm",
+    "name": "Tábua de carne 34×24 cm",
     "category": "Churrasco e cozinha",
-    "price": 54.9,
+    "price": 44.9,
     "minimumQuantity": 5,
     "minimumSpecified": true,
     "description": "Eucalipto.",
     "unit": "unidade",
     "images": [
-      "assets/products/MV020.webp"
+      "assets/products/tabua-de-carne-3424-cm-1.webp"
     ]
   },
   {
     "id": "MV021",
-    "name": "Tábua de carne 45 × 24 cm com cabo",
+    "name": "Tábua de carne 45×24 cm com cabo",
     "category": "Churrasco e cozinha",
     "price": 47.9,
     "minimumQuantity": 5,
@@ -275,24 +308,14 @@
     "description": "Eucalipto.",
     "unit": "unidade",
     "images": [
-      "assets/products/MV021.webp"
+      "assets/products/tabua-de-carne-4524-cm-com-cabo-1.webp",
+      "assets/products/tabua-de-carne-4524-cm-com-cabo-2.webp",
+      "assets/products/tabua-de-carne-4524-cm-com-cabo-3.webp",
+      "assets/products/tabua-de-carne-4524-cm-com-cabo-4.webp"
     ]
   },
   {
     "id": "MV022",
-    "name": "Kit churrasco 2 peças + estojo",
-    "category": "Churrasco e cozinha",
-    "price": 42,
-    "minimumQuantity": 10,
-    "minimumSpecified": true,
-    "description": "",
-    "unit": "unidade",
-    "images": [
-      "assets/products/MV022.webp"
-    ]
-  },
-  {
-    "id": "MV023",
     "name": "Kit churrasco 3 peças + estojo",
     "category": "Churrasco e cozinha",
     "price": 55,
@@ -301,7 +324,30 @@
     "description": "",
     "unit": "unidade",
     "images": [
-      "assets/products/MV023.webp"
+      "assets/products/MV022.webp",
+      "assets/products/kit-churrasco-3-pecas-estojo-2.webp",
+      "assets/products/kit-churrasco-3-pecas-estojo-3.webp",
+      "assets/products/kit-churrasco-3-pecas-estojo-4.webp",
+      "assets/products/kit-churrasco-3-pecas-estojo-5.webp",
+      "assets/products/kit-churrasco-3-pecas-estojo-6.webp"
+    ]
+  },
+  {
+    "id": "MV023",
+    "name": "Kit churrasco 2 peças + estojo",
+    "category": "Churrasco e cozinha",
+    "price": 49,
+    "minimumQuantity": 10,
+    "minimumSpecified": true,
+    "description": "",
+    "unit": "unidade",
+    "images": [
+      "assets/products/MV023.webp",
+      "assets/products/kit-churrasco-2-pecas-estojo-2.webp",
+      "assets/products/kit-churrasco-2-pecas-estojo-3.webp",
+      "assets/products/kit-churrasco-2-pecas-estojo-4.webp",
+      "assets/products/kit-churrasco-2-pecas-estojo-5.webp",
+      "assets/products/kit-churrasco-2-pecas-estojo-6.webp"
     ]
   },
   {
@@ -379,7 +425,10 @@
     "description": "",
     "unit": "unidade",
     "images": [
-      "assets/products/MV029.webp"
+      "assets/products/MV029.webp",
+      "assets/products/cuia-porongo-pe-de-ferro-2.webp",
+      "assets/products/cuia-porongo-pe-de-ferro-3.webp",
+      "assets/products/cuia-porongo-pe-de-ferro-4.webp"
     ]
   },
   {
@@ -392,7 +441,10 @@
     "description": "",
     "unit": "unidade",
     "images": [
-      "assets/products/MV030.webp"
+      "assets/products/cuia-porongo-pe-de-massa-1.webp",
+      "assets/products/cuia-porongo-pe-de-massa-2.webp",
+      "assets/products/cuia-porongo-pe-de-massa-3.webp",
+      "assets/products/cuia-porongo-pe-de-massa-4.webp"
     ]
   },
   {
@@ -402,10 +454,13 @@
     "price": 270,
     "minimumQuantity": 1,
     "minimumSpecified": false,
-    "description": "Mateira, porta-erva, garrafa 1 L, bomba e cuia porongo pé de ferro.",
+    "description": "Mateira, porta-erva, garrafa 1 L, bomba e cuia porongo.\nCor disponível: Marrom.",
     "unit": "unidade",
     "images": [
-      "assets/products/MV031.webp"
+      "assets/products/kit-mateira-completo-1.webp",
+      "assets/products/kit-mateira-completo-2.webp",
+      "assets/products/kit-mateira-completo-3.webp",
+      "assets/products/kit-mateira-completo-4.webp"
     ]
   },
   {
@@ -418,7 +473,11 @@
     "description": "Cuia porongo pé de massa.",
     "unit": "unidade",
     "images": [
-      "assets/products/MV032.webp"
+      "assets/products/MV032.webp",
+      "assets/products/kit-cuia-porongo-bomba-caixa-2.webp",
+      "assets/products/kit-cuia-porongo-bomba-caixa-3.webp",
+      "assets/products/kit-cuia-porongo-bomba-caixa-4.webp",
+      "assets/products/kit-cuia-porongo-bomba-caixa-5.webp"
     ]
   },
   {
@@ -428,10 +487,18 @@
     "price": 39,
     "minimumQuantity": 10,
     "minimumSpecified": true,
-    "description": "",
+    "description": "Cores disponíveis: preto, branco e azul.",
     "unit": "unidade",
     "images": [
-      "assets/products/MV033.webp"
+      "assets/products/copo-termico-cuia-360-ml-1.webp",
+      "assets/products/copo-termico-cuia-360-ml-2.webp",
+      "assets/products/copo-termico-cuia-360-ml-3.webp",
+      "assets/products/copo-termico-cuia-360-ml-4.webp",
+      "assets/products/copo-termico-cuia-360-ml-5.webp",
+      "assets/products/copo-termico-cuia-360-ml-6.webp",
+      "assets/products/copo-termico-cuia-360-ml-7.webp",
+      "assets/products/copo-termico-cuia-360-ml-8.webp",
+      "assets/products/copo-termico-cuia-360-ml-9.webp"
     ]
   },
   {
@@ -441,10 +508,14 @@
     "price": 49,
     "minimumQuantity": 10,
     "minimumSpecified": true,
-    "description": "",
+    "description": "Cor disponível: Preto e Branco.",
     "unit": "unidade",
     "images": [
-      "assets/products/MV034.webp"
+      "assets/products/MV034.webp",
+      "assets/products/porta-long-neck-termico-3-em-1-2.webp",
+      "assets/products/porta-long-neck-termico-3-em-1-3.webp",
+      "assets/products/porta-long-neck-termico-3-em-1-4.webp",
+      "assets/products/porta-long-neck-termico-3-em-1-5.webp"
     ]
   },
   {
@@ -454,10 +525,12 @@
     "price": 26,
     "minimumQuantity": 10,
     "minimumSpecified": true,
-    "description": "",
+    "description": "Cor disponível: Preto.",
     "unit": "unidade",
     "images": [
-      "assets/products/MV035.webp"
+      "assets/products/MV035.webp",
+      "assets/products/copo-termico-cafe-350-ml-2.webp",
+      "assets/products/copo-termico-cafe-350-ml-3.webp"
     ]
   },
   {
@@ -467,17 +540,21 @@
     "price": 49,
     "minimumQuantity": 1,
     "minimumSpecified": false,
-    "description": "",
+    "description": "Cores disponíveis: Preto e branco.",
     "unit": "unidade",
     "images": [
-      "assets/products/MV036.webp"
+      "assets/products/MV036.webp",
+      "assets/products/garrafa-termica-650-ml-2.webp",
+      "assets/products/garrafa-termica-650-ml-3.webp",
+      "assets/products/garrafa-termica-650-ml-4.webp",
+      "assets/products/garrafa-termica-650-ml-5.webp"
     ]
   },
   {
     "id": "MV037",
-    "name": "Copo térmico 473 ml",
+    "name": "Copo térmico 700ml",
     "category": "Copos e térmicos",
-    "price": 39,
+    "price": 49,
     "minimumQuantity": 10,
     "minimumSpecified": true,
     "description": "Sob encomenda. Consulte cores.",
@@ -488,15 +565,16 @@
   },
   {
     "id": "MV038",
-    "name": "Copo térmico 700 ml",
+    "name": "Copo térmico 473ml",
     "category": "Copos e térmicos",
-    "price": 49,
+    "price": 39,
     "minimumQuantity": 10,
     "minimumSpecified": true,
-    "description": "Sob encomenda. Consulte cores.",
+    "description": "Cores disponíveis: Preto e Azul escuro.",
     "unit": "unidade",
     "images": [
-      "assets/products/MV038.webp"
+      "assets/products/MV038.webp",
+      "assets/products/copo-termico-473ml-2.webp"
     ]
   },
   {
@@ -506,10 +584,12 @@
     "price": 39,
     "minimumQuantity": 5,
     "minimumSpecified": true,
-    "description": "Preto.",
+    "description": "Preto com personalização em DTF.",
     "unit": "unidade",
     "images": [
-      "assets/products/MV039.webp"
+      "assets/products/MV039.webp",
+      "assets/products/bolsa-termica-13-litros-2.webp",
+      "assets/products/bolsa-termica-13-litros-3.webp"
     ]
   },
   {
@@ -561,7 +641,8 @@
     "description": "Sob encomenda.",
     "unit": "unidade",
     "images": [
-      "assets/products/MV043.webp"
+      "assets/products/MV043.webp",
+      "assets/products/kit-churrasco-3-pecas-2.webp"
     ]
   },
   {
@@ -574,7 +655,8 @@
     "description": "",
     "unit": "unidade",
     "images": [
-      "assets/products/MV044.webp"
+      "assets/products/MV044.webp",
+      "assets/products/porta-whisky-2.webp"
     ]
   },
   {
@@ -600,7 +682,12 @@
     "description": "Somente um lado. Acrílico preto, branco ou transparente. Detalhes dourado ou prata espelhado.",
     "unit": "unidade",
     "images": [
-      "assets/products/MV046.webp"
+      "assets/products/display-pix-1.webp",
+      "assets/products/display-pix-2.webp",
+      "assets/products/display-pix-3.webp",
+      "assets/products/display-pix-4.webp",
+      "assets/products/display-pix-5.webp",
+      "assets/products/display-pix-6.webp"
     ]
   },
   {
@@ -631,7 +718,7 @@
   },
   {
     "id": "MV049",
-    "name": "Sinalização personalizada",
+    "name": "Urnas",
     "category": "Acrílico e MDF",
     "price": null,
     "minimumQuantity": 1,
@@ -644,7 +731,7 @@
   },
   {
     "id": "MV050",
-    "name": "Urnas",
+    "name": "Expositores em Acrílico",
     "category": "Acrílico e MDF",
     "price": null,
     "minimumQuantity": 1,
@@ -657,7 +744,7 @@
   },
   {
     "id": "MV051",
-    "name": "Expositores",
+    "name": "Sinalização Personalizada",
     "category": "Acrílico e MDF",
     "price": null,
     "minimumQuantity": 1,
@@ -670,33 +757,38 @@
   },
   {
     "id": "MV052",
-    "name": "Porta-retrato de formatura",
+    "name": "Porta-retrato de Eternização",
     "category": "Acrílico e MDF",
-    "price": null,
+    "price": 49,
     "minimumQuantity": 1,
     "minimumSpecified": false,
-    "description": "Projeto sob consulta.",
+    "description": "",
     "unit": "unidade",
     "images": [
-      "assets/products/MV052.webp"
+      "assets/products/MV052.webp",
+      "assets/products/porta-retrato-de-eternizacao-2.webp",
+      "assets/products/porta-retrato-de-eternizacao-3.webp",
+      "assets/products/porta-retrato-de-eternizacao-4.webp",
+      "assets/products/porta-retrato-de-eternizacao-5.webp"
     ]
   },
   {
     "id": "MV053",
-    "name": "Display MDF",
+    "name": "Porta-retrato Formatura",
     "category": "Acrílico e MDF",
-    "price": null,
+    "price": 39,
     "minimumQuantity": 1,
     "minimumSpecified": false,
-    "description": "Projeto sob consulta.",
+    "description": "",
     "unit": "unidade",
     "images": [
-      "assets/products/MV053.webp"
+      "assets/products/porta-retrato-formatura-1.webp",
+      "assets/products/porta-retrato-formatura-2.webp"
     ]
   },
   {
     "id": "MV054",
-    "name": "Porta-retrato de eternização",
+    "name": "Display de Logo",
     "category": "Acrílico e MDF",
     "price": null,
     "minimumQuantity": 1,
@@ -717,7 +809,11 @@
     "description": "Consulte modelos e valores.",
     "unit": "unidade",
     "images": [
-      "assets/products/MV055.webp"
+      "assets/products/trofeus-personalizados-1.webp",
+      "assets/products/trofeus-personalizados-2.webp",
+      "assets/products/trofeus-personalizados-3.webp",
+      "assets/products/trofeus-personalizados-4.webp",
+      "assets/products/trofeus-personalizados-5.webp"
     ]
   },
   {
@@ -730,64 +826,27 @@
     "description": "Consulte modelos e valores.",
     "unit": "unidade",
     "images": [
-      "assets/products/MV056.webp"
-    ]
-  },
-  {
-    "id": "MV057",
-    "name": "Lembrança mão",
-    "category": "Datas comemorativas",
-    "price": null,
-    "minimumQuantity": 1,
-    "minimumSpecified": false,
-    "description": "Consulte modelos disponíveis.",
-    "unit": "unidade",
-    "images": [
-      "assets/products/MV057.webp"
-    ]
-  },
-  {
-    "id": "MV058",
-    "name": "Porta celular",
-    "category": "Datas comemorativas",
-    "price": null,
-    "minimumQuantity": 1,
-    "minimumSpecified": false,
-    "description": "Consulte modelos disponíveis.",
-    "unit": "unidade",
-    "images": [
-      "assets/products/MV058.webp"
-    ]
-  },
-  {
-    "id": "MV059",
-    "name": "Porta-retrato comemorativo",
-    "category": "Datas comemorativas",
-    "price": null,
-    "minimumQuantity": 1,
-    "minimumSpecified": false,
-    "description": "Consulte modelos disponíveis.",
-    "unit": "unidade",
-    "images": [
-      "assets/products/MV059.webp"
+      "assets/products/medalhas-personalizadas-1.webp",
+      "assets/products/medalhas-personalizadas-2.webp"
     ]
   },
   {
     "id": "MV060",
     "name": "Porta-chaves",
     "category": "Datas comemorativas",
-    "price": null,
-    "minimumQuantity": 1,
-    "minimumSpecified": false,
+    "price": 3.9,
+    "minimumQuantity": 20,
+    "minimumSpecified": true,
     "description": "Consulte modelos disponíveis.",
     "unit": "unidade",
     "images": [
-      "assets/products/MV060.webp"
+      "assets/products/MV060.webp",
+      "assets/products/porta-chaves-2.webp"
     ]
   },
   {
     "id": "MV061",
-    "name": "Chaveiro comemorativo",
+    "name": "Chaveiro personalizados",
     "category": "Datas comemorativas",
     "price": null,
     "minimumQuantity": 1,
