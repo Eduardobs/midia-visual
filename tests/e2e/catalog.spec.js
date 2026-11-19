@@ -169,3 +169,43 @@ test('falha no catálogo oferece contato e impede checkout', async ({page}) => {
   await expect(cards(page)).toHaveCount(0);
   await expect(page.locator('#load-more')).toBeHidden();
 });
+
+test('cor é opcional e acompanha cada item da sacola até o WhatsApp', async ({page}) => {
+  const [product, uncolored] = products;
+  await page.route('**/data/products.json', route => route.fulfill({
+    json: [{...product, colors: [{name: 'Azul', hex: '#0000ff'}, 'Verde & dourado']}, {...uncolored, colors: []}],
+  }));
+  await page.addInitScript(() => { window.open = url => { window.openedOrder = url; }; });
+  await page.goto('/');
+  const card = cards(page).first();
+  const picker = card.getByLabel('Cor', {exact: true});
+  await expect(cards(page).last().getByLabel('Cor', {exact: true})).toHaveCount(0);
+  await expect(picker).toHaveValue('');
+  const addFromCard = card.getByRole('button', {name: /Adicionar à sacola/});
+  await addFromCard.click();
+  await picker.selectOption('Azul');
+  await addFromCard.click();
+  await card.getByRole('button', {name: /Ver detalhes/}).click();
+  const detail = page.locator('#product-detail');
+  await detail.getByLabel('Cor', {exact: true}).selectOption('Verde & dourado');
+  await detail.getByRole('button', {name: /Adicionar à sacola/}).click();
+
+  await page.reload();
+  await expect(cards(page)).toHaveCount(2);
+  await openCart(page);
+  const rows = page.locator('.cart-item');
+  await expect(rows).toHaveCount(3);
+  const blue = rows.filter({hasText: 'Cor: Azul'});
+  await blue.getByRole('spinbutton').fill(String(product.minimumQuantity + 1));
+  await page.locator('#cart-title').click();
+  await expect(blue.getByRole('spinbutton')).toHaveValue(String(product.minimumQuantity + 1));
+  await expect(rows.last().getByRole('spinbutton')).toHaveValue(String(product.minimumQuantity));
+
+  await page.getByRole('button', {name: /Enviar pedido pelo WhatsApp/}).click();
+  const order = new URL(await page.evaluate(() => window.openedOrder));
+  expect(order.searchParams.get('text')).toContain('Cor: Azul');
+  expect(order.searchParams.get('text')).toContain('Cor: Verde & dourado');
+  await blue.getByRole('button', {name: /Remover/}).click();
+  await expect(rows).toHaveCount(2);
+  await expect(blue).toHaveCount(0);
+});

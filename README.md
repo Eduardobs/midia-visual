@@ -29,6 +29,7 @@ Edite `data/products.json` e coloque fotos em `assets/products/`. Não é necess
 - `minimumQuantity`: mínimo aceito na sacola.
 - `minimumSpecified`: indica se o PDF informa um mínimo. Quando não informa, a sacola começa em 1 e a página orienta a consultar as condições.
 - `unit`: unidade de cobrança (`unidade` ou `kit`).
+- `colors`: lista opcional de cores sólidas, com `name` e `hex` (por exemplo, `{"name":"Azul","hex":"#0000ff"}`). O catálogo também aceita listas antigas de nomes.
 - `priceTiers`: opcional, regras de preço por quantidade, com `minimumQuantity` e `price`.
 
 O PDF é apenas uma referência editorial: ele não faz parte dos arquivos do projeto nem é necessário para executar ou publicar o site.

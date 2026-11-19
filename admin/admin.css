@@ -5,3 +5,10 @@
 #add-images:not(:disabled):active{background:#172b4d;border-color:#172b4d}
 @media(prefers-reduced-motion:reduce){#add-images{transition:none}}
 .price-tiers h3{font-size:16px;margin:0}.tier-row{display:grid;grid-template-columns:1fr 1fr auto;gap:12px;align-items:end;padding:16px;margin-bottom:12px;border:1px solid #e2e5e9;border-radius:8px;background:#f8f9fb}.tier-summary{grid-column:1/-1;font-size:13px;color:#284884;margin:0}.tier-summary:empty{display:none}@media(max-width:650px){.tier-row{grid-template-columns:1fr}.tier-row button{justify-self:start}}
+.product-colors h3{font-size:16px;margin:0}
+#product-colors{display:grid;gap:8px;list-style:none;padding:0;margin:12px 0}
+#product-colors li{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:10px;overflow-wrap:anywhere}
+.color-swatch{display:grid;place-items:center;width:24px;height:24px;border:1px solid #8993a5;border-radius:4px;font-size:12px}
+.color-fields{display:flex;align-items:end;gap:10px;flex-wrap:wrap}
+.color-fields label:nth-child(2){flex:1;min-width:130px}
+.color-fields input[type=color]{height:43px;padding:4px;cursor:pointer}

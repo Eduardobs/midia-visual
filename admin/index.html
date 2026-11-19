@@ -16,6 +16,15 @@
 <div><label for="category">Categoria</label><select id="category" name="category" required></select></div><label>Preço (R$; vazio = sob consulta)<input name="price" type="number" min="0" step="0.01"></label>
 <label>Quantidade mínima<input name="minimumQuantity" type="number" min="1" step="1" required></label><label>Unidade<input name="unit" required></label>
 <label class="wide check"><input name="minimumSpecified" type="checkbox"> Exibir quantidade mínima informada</label>
+<section class="wide product-colors" aria-labelledby="colors-title">
+<h3 id="colors-title">Cores disponíveis</h3>
+<ul id="product-colors" aria-label="Cores disponíveis"></ul>
+<div class="color-fields">
+<label>Cor sólida<input name="colorHex" type="color" value="#000000"></label>
+<label>Nome da cor<input name="colorName" type="text"></label>
+<button id="add-color" type="button">Adicionar cor</button>
+</div>
+</section>
 <label class="wide">Descrição<textarea name="description" rows="3"></textarea></label>
 <div class="wide"><button id="add-images" class="primary" type="button">Adicionar imagens</button><input id="image-files" type="file" accept="image/*" aria-label="Adicionar imagens" multiple hidden><p class="image-help">Selecione uma ou mais imagens. Elas serão adicionadas ao produto e incluídas no JSON como base64.</p><p id="image-status" role="status"></p><div id="image-preview" class="image-preview"></div></div>
 <input type="hidden" name="images">

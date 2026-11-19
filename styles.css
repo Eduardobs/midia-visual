@@ -45,3 +45,6 @@ main{padding:0}
 }
 
 .load-more{margin-top:32px;text-align:center}.load-more .button{min-height:44px}
+
+.color-picker{display:grid;gap:4px;margin-bottom:12px;font-size:14px}
+.color-picker select{width:100%;border:1px solid #767676;border-radius:6px;font-size:inherit}
